@@ -14,6 +14,8 @@ namespace DeactivisionInfiniteWordTrayarko
 
         private const string RunningMessage = "Deactivision is activated!";
 
+        private bool StopMuting { get; set; }
+
 
         public MainWindow()
         {
@@ -35,10 +37,37 @@ namespace DeactivisionInfiniteWordTrayarko
 
         private void Listener_CodLaunched(object sender, Process process)
         {
-            StatusLabel.Content = "Call of Duty is running!";
-            VolumeMixer.SetApplicationMute(process.Id, true);
-            
+            StatusLabel.Content = "Call of Duty is running.";
+
+            MuteCodIntermittently(process);
+
+            if (Settings.UnmuteOn == UnmuteSetting.Delayed)
+            {
+                DelayedUnmute();
+            }
         }
+
+        private async Task MuteCodIntermittently(Process process)
+        {
+            while (!StopMuting)
+            {
+                VolumeMixer.SetApplicationMute(process.Id, true);
+                await Task.Delay(50);
+            }
+            VolumeMixer.SetApplicationMute(process.Id, false);
+        }
+
+        private async Task DelayedUnmute()
+        {
+            await Task.Delay(15000);
+            StopMute();
+        }
+
+        private void StopMute()
+        {
+            StopMuting = true;
+        }
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             InitializeUI();
@@ -47,6 +76,7 @@ namespace DeactivisionInfiniteWordTrayarko
 
         private void InitializeUI()
         {
+            Settings.UnmuteOn = UnmuteSetting.Delayed;
             StatusLabel.Content = RunningMessage;
             SecondsComboBox.ItemsSource = Settings.SecondsAfterOptions;
             SecondsComboBox.SelectedIndex = 2;//30s
