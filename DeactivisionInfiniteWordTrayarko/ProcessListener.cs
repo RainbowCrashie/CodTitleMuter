@@ -55,10 +55,10 @@ namespace DeactivisionInfiniteWordTrayarko
 
             if (didntFoundCod)
             {
-                WasCodLaunchedLastTime = false;
-
                 if (WasCodLaunchedLastTime)
                     CodExited(this, FoundProcess);
+
+                WasCodLaunchedLastTime = false;
             }
         }
 

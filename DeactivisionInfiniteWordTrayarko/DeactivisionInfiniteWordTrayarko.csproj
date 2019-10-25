@@ -58,10 +58,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Audio.cs" />
     <Compile Include="ProcessListener.cs" />
     <Compile Include="Settings.cs" />
-    <Compile Include="Volume.cs" />
     <Compile Include="VolumeMixer.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
