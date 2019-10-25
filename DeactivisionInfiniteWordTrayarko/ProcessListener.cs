@@ -37,28 +37,18 @@ namespace DeactivisionInfiniteWordTrayarko
             bool didntFoundCod = true;
             foreach (var cod in CodList)
             {
-                Process processCandidateByPrevious = Process.GetProcessesByName(FoundProcess.ProcessName)[0];
-                Process processCandidateBySearch = default;
-                if (processCandidateByPrevious != default)
-                {
-                    FoundProcess = processCandidateByPrevious;
+                var pr = processes.FirstOrDefault(p => p.ProcessName == cod);
+                if (pr == default(Process))
                     continue;
-                }
-                else
-                {
-                    processCandidateBySearch = processes.FirstOrDefault(p => p.ProcessName == cod);
-                    if (processCandidateBySearch == default)
-                        continue;
-                }
 
                 didntFoundCod = false;
 
-                //if (WasCodLaunchedLastTime)
-                //    continue;
+                if (WasCodLaunchedLastTime)
+                    continue;
 
                 WasCodLaunchedLastTime = true;
-                FoundProcess = processCandidateBySearch;
-                CodLaunched(this, FoundProcess);
+                CodLaunched(this, pr);
+                FoundProcess = pr;
 
                 Console.WriteLine("COD");
             }
