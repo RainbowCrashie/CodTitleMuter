@@ -7,7 +7,7 @@
     <ProjectGuid>{295A0732-1BF8-4484-BEAF-FC4A10738DF2}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>DeactivisionInfiniteWordTrayarko</RootNamespace>
-    <AssemblyName>DeactivisionInfiniteWordTrayarko</AssemblyName>
+    <AssemblyName>CodTitleMuter</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -33,6 +33,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>mute_sound_speaker_volume_icon_127140.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CSCore, Version=1.2.1.2, Culture=neutral, PublicKeyToken=5a08f2b6f4415dea, processorArchitecture=MSIL">
@@ -100,6 +103,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="mute_sound_speaker_volume_icon_127140.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -5,17 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DeactivisionInfiniteWordTrayarko"
         mc:Ignorable="d"
-        Title="DeactivisionInfiniteWordTrayarko" Height="180" Width="256" Loaded="Window_Loaded">
+        Title="DeactivisionInfiniteWordTrayarko" Height="210" Width="297" Loaded="Window_Loaded" Icon="mute_sound_speaker_volume_icon_127140.ico">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="60*"/>
-            <RowDefinition Height="89*"/>
+            <RowDefinition Height="59*"/>
+            <RowDefinition Height="120*"/>
         </Grid.RowDefinitions>
-        <RadioButton x:Name="ShortcutKeyRadioButton" Content="Shortcut Key (CTRL+SHIFT+K)" HorizontalAlignment="Left" Margin="38,51,0,0" VerticalAlignment="Top" Grid.Row="1"/>
-        <RadioButton x:Name="SecondsAfterRadioButton" Content="Seconds After:" HorizontalAlignment="Left" Margin="38,27,0,0" VerticalAlignment="Top" Grid.Row="1" IsChecked="True"/>
-        <Label Content="Unnmute at:" HorizontalAlignment="Left" Margin="19,1,0,0" VerticalAlignment="Top" Grid.Row="1"/>
-        <ComboBox x:Name="SecondsComboBox" HorizontalAlignment="Left" Margin="140,23,0,0" VerticalAlignment="Top" Width="45" Grid.Row="1"/>
-        <Label x:Name="StatusLabel" Content="Label" HorizontalAlignment="Left" Margin="19,20,0,0" VerticalAlignment="Top"/>
+        <RadioButton IsEnabled="False" x:Name="NetworkRadioButton" Content="Network Detection (Recommended)" HorizontalAlignment="Left" Margin="38,33,0,0" VerticalAlignment="Top" Grid.Row="1" IsChecked="True"/>
+        <Label Content="Unnmute at:" HorizontalAlignment="Left" Margin="19,6,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+        <Label x:Name="StatusLabel" Content="Status" HorizontalAlignment="Left" Margin="19,25,0,8" VerticalAlignment="Center"/>
+        <RadioButton x:Name="ShortcutKeyRadioButton" IsEnabled="False" Content="Shortcut Key (CTRL+SHIFT+K)" HorizontalAlignment="Left" Margin="38,81,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+        <RadioButton x:Name="SecondsAfterRadioButton" Content="Seconds After:" HorizontalAlignment="Left" Margin="38,57,0,0" VerticalAlignment="Top" Grid.Row="1" IsChecked="True"/>
+        <ComboBox x:Name="SecondsComboBox" HorizontalAlignment="Left" Margin="140,54,0,0" VerticalAlignment="Top" Width="45" Grid.Row="1"/>
 
     </Grid>
 </Window>
