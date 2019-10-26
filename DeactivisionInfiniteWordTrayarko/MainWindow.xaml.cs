@@ -41,25 +41,35 @@ namespace DeactivisionInfiniteWordTrayarko
 
             MuteCodIntermittently(process);
 
-            if (Settings.UnmuteOn == UnmuteSetting.Delayed)
-            {
-                DelayedUnmute();
-            }
+            //if (Settings.UnmuteOn == UnmuteSetting.Delayed)
+            //{
+            //    DelayedUnmute();
+            //}
         }
 
+        private DateTime codLaunchedTime { get; set; } = default;
         private async Task MuteCodIntermittently(Process process)
         {
             while (!StopMuting)
             {
+                if (VolumeMixer.GetApplicationVolume(process.Id) == 100f)
+                {
+                    if (codLaunchedTime == default)
+                    {
+                        codLaunchedTime = DateTime.Now;
+                        DelayedUnmute();
+                    }
+                }
                 VolumeMixer.SetApplicationMute(process.Id, true);
                 await Task.Delay(50);
             }
+            codLaunchedTime = default;
             VolumeMixer.SetApplicationMute(process.Id, false);
         }
 
         private async Task DelayedUnmute()
         {
-            await Task.Delay(15000);
+            await Task.Delay(18000);
             StopMute();
         }
 
